@@ -1,0 +1,52 @@
+project:
+  type: website
+  output-dir: docs
+  # Every report renders as a page of this site. Computed output is stored in
+  # _freeze/ (commit it). A full render reuses it and runs the code of each
+  # report that has no stored output there.
+  # After you change a report, render it by name, then render the whole site,
+  # then commit the report with _freeze/, docs/, and figures/. See GUIDE.md.
+  render:
+    - index.qmd
+    - "analyses/*.qmd"
+  # Data files and paper figures are published as they are. After a render
+  # saves a figure under a new name in figures/, render the whole site again
+  # to copy it into docs/. Then commit figures/, docs/, and _freeze/.
+  resources:
+    - "data/**"
+    - "figures/**"
+  # Quarto runs these Lua scripts through Pandoc; they need no R. See
+  # GUIDE.md.
+  pre-render: _scripts/setup.lua
+  post-render: _scripts/nojekyll.lua
+
+# Facts about the paper (title, citation, DOIs, data files) that every page
+# can read.
+metadata-files:
+  - _supplement.yml
+
+execute:
+  freeze: true
+
+website:
+  title: "Supplemental Materials"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Analyses
+        menu:
+          - href: analyses/example.qmd
+            text: Example Analysis
+    right:
+      - icon: github
+        href: https://github.com/jmgirard/supplement-publish-walk
+  # The license names come from license.code and license.content in
+  # _supplement.yml, and each one links to spdx.org/licenses/<id>.html.
+  page-footer:
+    center: "Code: {{< supplement-license code >}} · Content: {{< supplement-license content >}}"
+
+format:
+  html:
+    theme: cosmo
+    toc: true

@@ -1,0 +1,58 @@
+# Facts about the paper and this site. The home page shows the title,
+# citation, contact, Zenodo values, and data files, so edit them here and
+# not in index.qmd. The page footer shows the two licenses. No page shows
+# preprint or authors yet. Values are Markdown, so *Journal* gives
+# italics. Leave a value as "" until you have it. In R, supplement::write_citation() and supplement::write_zenodo()
+# write CITATION.cff and .zenodo.json from the title, citation, version,
+# licenses, authors, and DOIs in this file.
+supplement:
+  paper-title: "Title of the paper"
+  citation: "Author, A. A., & Author, B. B. (Year). Title of the paper. *Journal Name*."
+  # The version of this site, as three whole numbers such as "1.0.0".
+  # supplement::release_supplement() raises it for each release. Leave it
+  # "" until the first release.
+  version: ""
+  # A link to the preprint, if there is one.
+  preprint: ""
+  contact: "Your Name, Your Institution. Your email address."
+  # SPDX license identifiers. LICENSE.md and LICENSE-CC-BY.md hold the texts.
+  # The page footer shows a readable name for common ids, such as CC BY 4.0
+  # for CC-BY-4.0, and any other id as written, and links each one to
+  # spdx.org/licenses/<id>.html. SPDX has that page only for the ids it
+  # lists. Write one id of letters and digits, with one . or -
+  # between groups and at most one + at the end. Any other value, such as
+  # "CC BY 4.0", stops the render.
+  license:
+    code: "MIT"
+    content: "CC-BY-4.0"
+  # family is the family name (surname), and given holds the given names.
+  # Write an ORCID iD in the form 0000-0002-1825-0097 (an example iD).
+  authors:
+    - family: "Author"
+      given: "A. A."
+      orcid: ""
+      affiliation: ""
+    - family: "Author"
+      given: "B. B."
+      orcid: ""
+      affiliation: ""
+  # With Zenodo's GitHub integration turned on for the repository, Zenodo
+  # gives these after the next GitHub release. version-doi names one
+  # release, and concept-doi names all of them. The badge shows version-doi,
+  # or concept-doi when version-doi is empty. Write a DOI such as
+  # "10.5281/zenodo.1234567". A "https://doi.org/" or "doi:" in front is
+  # removed. A value that is not a DOI, such as "doi:" alone, stops the
+  # render.
+  zenodo:
+    version-doi: ""
+    concept-doi: ""
+    archive-url: ""
+  # Files for the data table on the home page. Paths are relative to this
+  # folder. A file that does not exist stops the render. Use file names
+  # made of letters, digits, ".", "-", and "_", with no two of those
+  # symbols in a row, because Quarto reads each value as Markdown. Windows
+  # cannot use a name that ends in "." or that starts with a device name
+  # such as "con" before its first ".", as in "con.csv".
+  data:
+    - file: data/example.csv
+      description: "Example data for the example report"

@@ -1,0 +1,57 @@
+# R, RStudio, and Quarto
+.Rproj.user/
+.Rhistory
+.Rapp.history
+.RData
+.Renviron
+.quarto/
+*_cache/
+**/*.quarto_ipynb
+*.knit.md
+*.utf8.md
+*.rmarkdown
+rsconnect/
+.luarc.json
+.DS_Store
+.claude/
+
+# Before each render, Quarto rewrites this file if it lacks `/.quarto/` or
+# `**/*.quarto_ipynb`. It also rewrites it if it lacks `/_*.local` while a
+# file such as _environment.local is in this folder, or `/env/` while env/
+# holds a Python environment. Files such as _environment.local hold settings
+# for one computer.
+/.quarto/
+/_*.local
+
+# Fitted models and other saved R objects can embed the data. The bracket
+# patterns match any mix of upper and lower case, as on Linux git is
+# case-sensitive.
+*.[Rr][Dd][Ss]
+*.[Rr][Dd][Aa]
+*.[Rr][Dd][Aa][Tt][Aa]
+*.[Qq][Ss]
+*.[Qq][Ss]2
+analyses/fits/
+
+# Files that reports write next to their sources. Save paper figures in
+# figures/ instead.
+analyses/*.html
+analyses/*_files/
+analyses/*.[Pp][Dd][Ff]
+analyses/*.[Pp][Nn][Gg]
+
+# Temporary files that save_png() in _scripts/report.R leaves if R stops
+# while it draws.
+.save-*.png
+
+# Private data. Keep it outside this folder, or put it here.
+private/
+
+# Published output. These lines undo rules elsewhere in this file (for
+# example the `docs/` rule in GitHub's R template) that would keep the site
+# out of git.
+!docs/
+!_freeze/
+.Rproj.user
+.httr-oauth
+.quarto

@@ -1,0 +1,58 @@
+---
+title: "Supplemental Materials"
+subtitle: "{{< meta supplement.paper-title >}}"
+# The table under "Analysis Reports" lists each report in analyses/, with
+# the title and description from the report's front matter. Reports with an
+# `order` in their front matter come first, by that number, and the others
+# after them by title.
+listing:
+  id: reports
+  type: table
+  contents: analyses/*.qmd
+  fields: [title, description]
+  field-display-names:
+    title: Report
+  sort-ui: false
+  filter-ui: false
+---
+
+::: {.callout-important}
+## Before your first commit
+
+Run `quarto render` once in this folder. The first render adds the
+template's rules to `.gitignore`, which keep fitted models and other large
+files out of git. It also writes `README.md`, the page for the site's
+readers, unless a `README.md` already exists. The guide for authors is
+`GUIDE.md`.
+
+Put the paper title, citation, DOIs, and data files in `_supplement.yml`.
+This page reads them from there. Then delete this box.
+:::
+
+This site hosts the supplemental analysis reports, code, and data for:
+
+> {{< meta supplement.citation >}}
+
+## Archived Version
+
+A frozen, citable copy of these materials is archived on Zenodo. The DOI
+badge and the download link show here after you add the values under
+`zenodo` in `_supplement.yml`.
+
+{{< supplement-doi >}} {{< supplement-download >}}
+
+## Analysis Reports
+
+Each report is a rendered Quarto document with its complete code and output.
+The source files (`.qmd`) are in the `analyses/` folder of the repository.
+
+::: {#reports}
+:::
+
+## Data Availability
+
+{{< supplement-data-table >}}
+
+## Contact
+
+{{< meta supplement.contact >}}
