@@ -36,8 +36,8 @@ website:
         text: Home
       - text: Analyses
         menu:
-          - href: analyses/example.qmd
-            text: Example Analysis
+          - href: "analyses/results.qmd"
+            text: "Results"
     right:
       - icon: github
         href: https://github.com/jmgirard/supplement-publish-walk

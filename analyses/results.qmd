@@ -1,0 +1,41 @@
+---
+title: "Results"
+description: "A short test report."
+order: 2
+---
+
+Write the report here. The `site` chunk finds the site folder, so the
+report reads a data file as `file.path(site, "data", "<file name>")`.
+
+```{r}
+#| label: site
+site <- Sys.getenv("QUARTO_PROJECT_DIR")
+if (!nzchar(site)) {
+  site <- Find(function(dir) file.exists(file.path(dir, "_quarto.yml")), c(".", ".."))
+}
+if (is.null(site)) {
+  stop("Run this code from the site folder or from its analyses/ folder.")
+}
+source(file.path(site, "_scripts", "report.R"), local = TRUE)
+```
+
+```{r}
+#| label: setup
+set.seed(2026)
+```
+
+## Computing environment
+
+This section shows the versions of R and of each package that the last render
+of this report used, from `print_environment()` in `_scripts/report.R`. The
+site stores this output with the rest, so the page keeps the versions that
+made its results. Your home folder shows as `~`. Read the output before you
+publish it, because a folder outside your home folder shows in full.
+
+::: {.callout-note collapse="true" title="R and package versions"}
+```{r}
+#| label: session-info
+#| cache: false
+print_environment()
+```
+:::

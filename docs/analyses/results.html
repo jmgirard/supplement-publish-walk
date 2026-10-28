@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A short example report. Replace it with your own.">
+<meta name="description" content="A short test report.">
 
-<title>Example Analysis – Supplemental Materials</title>
+<title>Results – Supplemental Materials</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -140,8 +140,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-analyses">    
         <li>
-    <a class="dropdown-item" href="../analyses/example.html">
- <span class="dropdown-text">Example Analysis</span></a>
+    <a class="dropdown-item" href="../analyses/results.html">
+ <span class="dropdown-text">Results</span></a>
   </li>  
     </ul>
   </li>
@@ -168,11 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#site-folder" id="toc-site-folder" class="nav-link active" data-scroll-target="#site-folder">Site Folder</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#bootstrap-means" id="toc-bootstrap-means" class="nav-link" data-scroll-target="#bootstrap-means">Bootstrap Means</a></li>
-  <li><a href="#paper-figures" id="toc-paper-figures" class="nav-link" data-scroll-target="#paper-figures">Paper Figures</a></li>
-  <li><a href="#computing-environment" id="toc-computing-environment" class="nav-link" data-scroll-target="#computing-environment">Computing environment</a></li>
+  <li><a href="#computing-environment" id="toc-computing-environment" class="nav-link active" data-scroll-target="#computing-environment">Computing environment</a></li>
   </ul>
 </nav>
     </div>
@@ -181,12 +177,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Example Analysis</h1>
+<h1 class="title">Results</h1>
 </div>
 
 <div>
   <div class="description">
-    A short example report. Replace it with your own.
+    A short test report.
   </div>
 </div>
 
@@ -203,10 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This report shows the parts of an analysis page. Replace it with your own report, and keep one <code>.qmd</code> file per report in this folder.</p>
-<section id="site-folder" class="level2">
-<h2 class="anchored" data-anchor-id="site-folder">Site Folder</h2>
-<p>The code reads and writes files through <code>site</code>, the site folder. Quarto sets <code>QUARTO_PROJECT_DIR</code> to the site folder during a render. When you run the code by hand, the variable is usually missing. If it is missing or empty, the code looks for <code>_quarto.yml</code> in the current folder and then in the folder above it. It uses the first folder that holds the file. If neither folder holds it, the code stops with an error. So run it from the site folder or from <code>analyses/</code>. Then the code reads <code>_scripts/report.R</code>, which holds the functions that the reports share.</p>
+<p>Write the report here. The <code>site</code> chunk finds the site folder, so the report reads a data file as <code>file.path(site, "data", "&lt;file name&gt;")</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>site <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"QUARTO_PROJECT_DIR"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">nzchar</span>(site)) {</span>
@@ -217,48 +210,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">file.path</span>(site, <span class="st">"_scripts"</span>, <span class="st">"report.R"</span>), <span class="at">local =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(site, <span class="st">"data"</span>, <span class="st">"example.csv"</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       id              group        score      
- Min.   : 1.00   Length   :10   Min.   :11.00  
- 1st Qu.: 3.25   N.unique : 2   1st Qu.:13.25  
- Median : 5.50   N.blank  : 0   Median :15.50  
- Mean   : 5.50   Min.nchar: 1   Mean   :15.50  
- 3rd Qu.: 7.75   Max.nchar: 1   3rd Qu.:17.75  
- Max.   :10.00                  Max.   :20.00  </code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</section>
-<section id="bootstrap-means" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrap-means">Bootstrap Means</h2>
-<p>Seed every random draw, so that each render gives the same numbers and the same figures.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>boot_means <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">200</span>, <span class="fu">mean</span>(<span class="fu">sample</span>(dat<span class="sc">$</span>score, <span class="at">replace =</span> <span class="cn">TRUE</span>)))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(boot_means, <span class="at">main =</span> <span class="st">"Bootstrap means of score"</span>, <span class="at">xlab =</span> <span class="st">"Mean score"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="example_files/figure-html/bootstrap-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="paper-figures" class="level2">
-<h2 class="anchored" data-anchor-id="paper-figures">Paper Figures</h2>
-<p>Save each figure for the paper in <code>figures/</code>, which git tracks and the site publishes. <code>save_png()</code>, from <code>_scripts/report.R</code>, runs a function that draws the plot. For a ggplot <code>p</code>, pass <code>function() print(p)</code>. It stops when <code>figures</code> is a link or a file. It draws into a temporary file in <code>figures/</code>. It gives that file its name only when the plot succeeds and the file ends as a whole PNG file does. So a failed plot, or a file cut short, leaves no partial file there.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save_png</span>(<span class="st">"bootstrap-means.png"</span>, <span class="cf">function</span>() {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(boot_means, <span class="at">main =</span> <span class="st">"Bootstrap means of score"</span>, <span class="at">xlab =</span> <span class="st">"Mean score"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
 <section id="computing-environment" class="level2">
 <h2 class="anchored" data-anchor-id="computing-environment">Computing environment</h2>
 <p>This section shows the versions of R and of each package that the last render of this report used, from <code>print_environment()</code> in <code>_scripts/report.R</code>. The site stores this output with the rest, so the page keeps the versions that made its results. Your home folder shows as <code>~</code>. Read the output before you publish it, because a folder outside your home folder shows in full.</p>
@@ -275,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_environment</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_environment</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value

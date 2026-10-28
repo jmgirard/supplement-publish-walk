@@ -1,6 +1,6 @@
 # Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-Copyright (c) YEAR AUTHORS
+Copyright (c) 2026 Jeffrey M. Girard
 
 The non-code content of this repository is licensed under the Creative
 Commons Attribution 4.0 International License. This content is the rendered

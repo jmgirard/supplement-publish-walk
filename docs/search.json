@@ -1,43 +1,15 @@
 [
   {
-    "objectID": "analyses/example.html",
-    "href": "analyses/example.html",
-    "title": "Example Analysis",
+    "objectID": "analyses/results.html",
+    "href": "analyses/results.html",
+    "title": "Results",
     "section": "",
-    "text": "This report shows the parts of an analysis page. Replace it with your own report, and keep one .qmd file per report in this folder."
+    "text": "Write the report here. The site chunk finds the site folder, so the report reads a data file as file.path(site, \"data\", \"&lt;file name&gt;\").\nsite &lt;- Sys.getenv(\"QUARTO_PROJECT_DIR\")\nif (!nzchar(site)) {\n  site &lt;- Find(function(dir) file.exists(file.path(dir, \"_quarto.yml\")), c(\".\", \"..\"))\n}\nif (is.null(site)) {\n  stop(\"Run this code from the site folder or from its analyses/ folder.\")\n}\nsource(file.path(site, \"_scripts\", \"report.R\"), local = TRUE)\nset.seed(2026)"
   },
   {
-    "objectID": "analyses/example.html#site-folder",
-    "href": "analyses/example.html#site-folder",
-    "title": "Example Analysis",
-    "section": "Site Folder",
-    "text": "Site Folder\nThe code reads and writes files through site, the site folder. Quarto sets QUARTO_PROJECT_DIR to the site folder during a render. When you run the code by hand, the variable is usually missing. If it is missing or empty, the code looks for _quarto.yml in the current folder and then in the folder above it. It uses the first folder that holds the file. If neither folder holds it, the code stops with an error. So run it from the site folder or from analyses/. Then the code reads _scripts/report.R, which holds the functions that the reports share.\n\nsite &lt;- Sys.getenv(\"QUARTO_PROJECT_DIR\")\nif (!nzchar(site)) {\n  site &lt;- Find(function(dir) file.exists(file.path(dir, \"_quarto.yml\")), c(\".\", \"..\"))\n}\nif (is.null(site)) {\n  stop(\"Run this code from the site folder or from its analyses/ folder.\")\n}\nsource(file.path(site, \"_scripts\", \"report.R\"), local = TRUE)"
-  },
-  {
-    "objectID": "analyses/example.html#data",
-    "href": "analyses/example.html#data",
-    "title": "Example Analysis",
-    "section": "Data",
-    "text": "Data\n\ndat &lt;- read.csv(file.path(site, \"data\", \"example.csv\"))\nsummary(dat)\n\n       id              group        score      \n Min.   : 1.00   Length   :10   Min.   :11.00  \n 1st Qu.: 3.25   N.unique : 2   1st Qu.:13.25  \n Median : 5.50   N.blank  : 0   Median :15.50  \n Mean   : 5.50   Min.nchar: 1   Mean   :15.50  \n 3rd Qu.: 7.75   Max.nchar: 1   3rd Qu.:17.75  \n Max.   :10.00                  Max.   :20.00"
-  },
-  {
-    "objectID": "analyses/example.html#bootstrap-means",
-    "href": "analyses/example.html#bootstrap-means",
-    "title": "Example Analysis",
-    "section": "Bootstrap Means",
-    "text": "Bootstrap Means\nSeed every random draw, so that each render gives the same numbers and the same figures.\n\nset.seed(2026)\nboot_means &lt;- replicate(200, mean(sample(dat$score, replace = TRUE)))\nhist(boot_means, main = \"Bootstrap means of score\", xlab = \"Mean score\")"
-  },
-  {
-    "objectID": "analyses/example.html#paper-figures",
-    "href": "analyses/example.html#paper-figures",
-    "title": "Example Analysis",
-    "section": "Paper Figures",
-    "text": "Paper Figures\nSave each figure for the paper in figures/, which git tracks and the site publishes. save_png(), from _scripts/report.R, runs a function that draws the plot. For a ggplot p, pass function() print(p). It stops when figures is a link or a file. It draws into a temporary file in figures/. It gives that file its name only when the plot succeeds and the file ends as a whole PNG file does. So a failed plot, or a file cut short, leaves no partial file there.\n\nsave_png(\"bootstrap-means.png\", function() {\n  hist(boot_means, main = \"Bootstrap means of score\", xlab = \"Mean score\")\n})"
-  },
-  {
-    "objectID": "analyses/example.html#computing-environment",
-    "href": "analyses/example.html#computing-environment",
-    "title": "Example Analysis",
+    "objectID": "analyses/results.html#computing-environment",
+    "href": "analyses/results.html#computing-environment",
+    "title": "Results",
     "section": "Computing environment",
     "text": "Computing environment\nThis section shows the versions of R and of each package that the last render of this report used, from print_environment() in _scripts/report.R. The site stores this output with the rest, so the page keeps the versions that made its results. Your home folder shows as ~. Read the output before you publish it, because a folder outside your home folder shows in full.\n\n\n\n\n\n\nNoteR and package versions\n\n\n\n\n\n\nprint_environment()\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.6.1 (2026-06-24)\n os       macOS Golden Gate 27.0.1\n system   aarch64, darwin23\n ui       X11\n language (EN)\n collate  en_US\n ctype    en_US\n tz       Europe/Budapest\n date     2026-10-28\n pandoc   3.12.1 @ /opt/homebrew/bin/ (via rmarkdown)\n quarto   1.10.19 @ /usr/local/bin/quarto\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n cli           3.6.6   2026-04-09 [2] CRAN (R 4.6.0)\n digest        0.6.39  2025-11-19 [2] CRAN (R 4.6.0)\n evaluate      1.0.5   2025-08-27 [2] CRAN (R 4.6.0)\n fastmap       1.2.0   2024-05-15 [2] CRAN (R 4.6.0)\n htmltools     0.5.9   2025-12-04 [2] CRAN (R 4.6.0)\n htmlwidgets   1.6.4   2023-12-06 [2] CRAN (R 4.6.0)\n jsonlite      2.0.0   2025-03-27 [2] CRAN (R 4.6.0)\n knitr         1.52    2026-09-06 [2] CRAN (R 4.6.1)\n otel          0.2.0   2025-08-29 [2] CRAN (R 4.6.0)\n rlang         1.3.0   2026-07-05 [2] CRAN (R 4.6.1)\n rmarkdown     2.32    2026-09-01 [2] CRAN (R 4.6.1)\n sessioninfo   1.2.4   2026-06-04 [3] CRAN (R 4.6.0)\n xfun          0.61    2026-09-16 [2] CRAN (R 4.6.1)\n yaml          2.3.12  2025-12-10 [2] CRAN (R 4.6.0)\n\n [1] /private/tmp/claude-501/-Users-jmgirard-github-supplement/e71cb1cf-f517-4955-afcf-71062b3a9e7c/scratchpad/lib\n [2] ~/Library/R/arm64/4.6/library\n [3] /Library/Frameworks/R.framework/Versions/4.6/Resources/library\n\n──────────────────────────────────────────────────────────────────────────────\nShared report code: _scripts/report.R, MD5 88441316dea74fe202f52d2eaafaadaf"
   },
@@ -46,7 +18,7 @@
     "href": "index.html",
     "title": "Supplemental Materials",
     "section": "",
-    "text": "ImportantBefore your first commit\n\n\n\nRun quarto render once in this folder. The first render adds the template’s rules to .gitignore, which keep fitted models and other large files out of git. It also writes README.md, the page for the site’s readers, unless a README.md already exists. The guide for authors is GUIDE.md.\nPut the paper title, citation, DOIs, and data files in _supplement.yml. This page reads them from there. Then delete this box.\nThis site hosts the supplemental analysis reports, code, and data for:"
+    "text": "This site hosts the supplemental analysis reports, code, and data for:"
   },
   {
     "objectID": "index.html#archived-version",
@@ -60,20 +32,20 @@
     "href": "index.html#analysis-reports",
     "title": "Supplemental Materials",
     "section": "Analysis Reports",
-    "text": "Analysis Reports\nEach report is a rendered Quarto document with its complete code and output. The source files (.qmd) are in the analyses/ folder of the repository.\n\n\n\n\n\n\nReport\n\n\n\nDescription\n\n\n\n\n\n\n\n\nExample Analysis\n\n\nA short example report. Replace it with your own.\n\n\n\n\n\n\nNo matching items"
+    "text": "Analysis Reports\nEach report is a rendered Quarto document with its complete code and output. The source files (.qmd) are in the analyses/ folder of the repository.\n\n\n\n\n\n\nReport\n\n\n\nDescription\n\n\n\n\n\n\n\n\nResults\n\n\nA short test report.\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#data-availability",
     "href": "index.html#data-availability",
     "title": "Supplemental Materials",
     "section": "Data Availability",
-    "text": "Data Availability\n\n\n\nFile\nDescription\nSize\n\n\n\n\nexample.csv\nExample data for the example report\n86 B"
+    "text": "Data Availability"
   },
   {
     "objectID": "index.html#contact",
     "href": "index.html#contact",
     "title": "Supplemental Materials",
     "section": "Contact",
-    "text": "Contact\nYour Name, Your Institution. Your email address."
+    "text": "Contact\nJeffrey Girard, me@jmgirard.com"
   }
 ]

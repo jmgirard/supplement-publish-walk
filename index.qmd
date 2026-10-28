@@ -16,18 +16,6 @@ listing:
   filter-ui: false
 ---
 
-::: {.callout-important}
-## Before your first commit
-
-Run `quarto render` once in this folder. The first render adds the
-template's rules to `.gitignore`, which keep fitted models and other large
-files out of git. It also writes `README.md`, the page for the site's
-readers, unless a `README.md` already exists. The guide for authors is
-`GUIDE.md`.
-
-Put the paper title, citation, DOIs, and data files in `_supplement.yml`.
-This page reads them from there. Then delete this box.
-:::
 
 This site hosts the supplemental analysis reports, code, and data for:
 
