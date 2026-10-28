@@ -1,0 +1,13 @@
+{
+  "title": "Supplemental materials for: A Test of the Publishing Guide",
+  "version": "1.0.0",
+  "upload_type": "software",
+  "description": "Supplemental materials for: Girard, J. M. (2026). A test of the publishing guide. *Test Journal*, *1*(1), 1-2.",
+  "creators": [
+    {
+      "name": "Girard, Jeffrey M.",
+      "affiliation": "University of Kansas"
+    }
+  ],
+  "license": "cc-by-4.0"
+}

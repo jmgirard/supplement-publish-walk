@@ -1,0 +1,14 @@
+# Written by supplement::write_citation() from _supplement.yml.
+# Change _supplement.yml and write this file again.
+cff-version: "1.2.0"
+message: "If you use these materials, please cite them using the metadata from this
+  file."
+title: "Supplemental materials for: A Test of the Publishing Guide"
+version: "1.0.0"
+authors:
+  - family-names: "Girard"
+    given-names: "Jeffrey M."
+    affiliation: "University of Kansas"
+license:
+  - "MIT"
+  - "CC-BY-4.0"

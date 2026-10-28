@@ -11,7 +11,7 @@ supplement:
   # The version of this site, as three whole numbers such as "1.0.0".
   # supplement::release_supplement() raises it for each release. Leave it
   # "" until the first release.
-  version: ""
+  version: "1.0.0"
   # A link to the preprint, if there is one.
   preprint: ""
   contact: "Jeffrey Girard, me@jmgirard.com"
